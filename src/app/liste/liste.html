@@ -1,5 +1,13 @@
 <ol class="list-group">
-    <app-item (eventToListe)="sendCandidateToCv($event)" [oneCandidate]="allCandidates[0]"></app-item>
+    @for (cand of allCandidates; track $index) {
+        {{ $index }}
+        <app-item (eventToListe)="sendCandidateToCv($event)" [oneCandidate]="cand"></app-item>
+        
+    }
+    
+    <!-- <div *ngFor="let item of list">Exemple</div>
+    <div *ngFor="let item of list; trackBy:item">Exemple</div> -->
+    <!-- <app-item (eventToListe)="sendCandidateToCv($event)" [oneCandidate]="allCandidates[0]"></app-item>
     <app-item (eventToListe)="sendCandidateToCv($event)" [oneCandidate]="allCandidates[1]"></app-item>
-    <app-item (eventToListe)="sendCandidateToCv($event)" [oneCandidate]="allCandidates[2]"></app-item>
+    <app-item (eventToListe)="sendCandidateToCv($event)" [oneCandidate]="allCandidates[2]"></app-item> -->
 </ol>
