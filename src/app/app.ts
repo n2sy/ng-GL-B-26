@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { First } from "./first/first";
+import { Cv } from "./cv/cv";
 
 @Component({
   selector: 'app-root',
-  imports: [ First],
+  imports: [First, Cv],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

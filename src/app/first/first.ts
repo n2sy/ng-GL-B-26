@@ -23,5 +23,11 @@ export class First {
         
          this.prenom = inpValue;
     }
+    
+    traitement(msg : any) {
+        console.log(msg);
+        this.prenom = msg
+        
+    }
 
 }
