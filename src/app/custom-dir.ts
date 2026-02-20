@@ -1,0 +1,25 @@
+import { Directive, HostBinding, HostListener } from '@angular/core';
+
+@Directive({
+  selector: '[appCustomDir]',
+})
+export class CustomDir {
+    @HostBinding('style.backgroundColor') bg ;
+    @HostBinding('style.color') cl;
+
+  constructor() { }
+  
+  @HostListener('mouseenter') mouseenter() {
+ this.bg = "grey";
+ this.cl = "white"   
+    
+  }
+  
+  @HostListener('mouseleave') mouseleave() {
+ this.bg = "pink";
+ this.cl = "yellow"   
+    
+  }
+ 
+
+}

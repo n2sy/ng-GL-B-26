@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { Liste } from "../liste/liste";
 import { Details } from "../details/details";
 import { Candidat } from '../models/Candidat';
+import { CustomDir } from "../custom-dir";
 
 @Component({
   selector: 'app-cv',
-  imports: [Liste, Details],
+  imports: [Liste, Details, CustomDir],
   templateUrl: './cv.html',
   styleUrl: './cv.css',
 })
