@@ -16,8 +16,8 @@ export class CustomDir {
   }
   
   @HostListener('mouseleave') mouseleave() {
- this.bg = "pink";
- this.cl = "yellow"   
+ this.bg = "white";
+ this.cl = "black"   
     
   }
  

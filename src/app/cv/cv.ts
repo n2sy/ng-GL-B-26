@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
-import { Liste } from "../liste/liste";
-import { Details } from "../details/details";
+import { Component, inject } from '@angular/core';
+import { Liste } from '../liste/liste';
+import { Details } from '../details/details';
 import { Candidat } from '../models/Candidat';
-import { CustomDir } from "../custom-dir";
+import { CustomDir } from '../custom-dir';
+import { First } from '../services/first';
+import { GestionCandidats } from '../services/gestion-candidats';
 
 @Component({
   selector: 'app-cv',
@@ -11,19 +13,32 @@ import { CustomDir } from "../custom-dir";
   styleUrl: './cv.css',
 })
 export class Cv {
-   tabCandidats : Candidat[] = [
-    new Candidat(1, "bart", "simpson", 26, "ingénieur", "bart.jpeg"),
-    new Candidat(2, "homer", "simpson", 52, "chef de projet", "homer.png"),
-    new Candidat(1, "lisa", "simpson", 21, "designer", "lisa.png"),
-        new Candidat(4, "marge", "simpson", 66, "Analyste"),
+  tabCandidats: Candidat[] = [];
 
-   ];
-   
-   selectedCandidat : Candidat;
-   
-   recupererCandidatSelectionne(cand) {
-    this.selectedCandidat = cand;
+  selectedCandidat: Candidat;
+
+  //1ere méthode
+  constructor(private firstSer : First) {}
+
+  //2ème méthode
+  //private firstSer = inject(First);
+  private candSer = inject(GestionCandidats);
+
+  ngOnInit() {
+    this.firstSer.afficherBonjour();
+    this.tabCandidats = this.candSer.getAllCandidates();
+  }
+  
+  addHandler() {
+    this.candSer.addCandidate();
+  }
+  
+  showListCandidates() {
+    console.log(this.candSer.getAllCandidates());
     
-   }
+  }
 
+  recupererCandidatSelectionne(cand) {
+    this.selectedCandidat = cand;
+  }
 }
