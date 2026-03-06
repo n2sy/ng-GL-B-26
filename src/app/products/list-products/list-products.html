@@ -1,0 +1,20 @@
+<table class="table table-striped">
+  <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Selected</th>
+    <th></th>
+  </thead>
+  <tbody>
+    @for (product of productSer.allProducts(); track $index) {
+      <tr>
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }} </td>
+        <td>{{ product.price }} </td>
+        <td></td>
+        <td>Delete</td>
+      </tr>
+    }
+  </tbody>
+</table>

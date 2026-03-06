@@ -7,10 +7,11 @@ import { ManageServers } from "./manage-servers/manage-servers";
 import { GestionCandidats } from './services/gestion-candidats';
 import { Recrues } from "./recrues/recrues";
 import { ExempleSignals } from "./exemple-signals/exemple-signals";
+import { HomeProducts } from "./products/home-products/home-products";
 
 @Component({
   selector: 'app-root',
-  imports: [First, Cv, HomeAccount, Direct, ManageServers, Recrues, ExempleSignals],
+  imports: [First, Cv, HomeAccount, Direct, ManageServers, Recrues, ExempleSignals, HomeProducts],
   templateUrl: './app.html',
   styleUrl: './app.css',
 
