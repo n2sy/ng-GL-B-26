@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Candidat } from '../models/Candidat';
+import { First } from './first';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,10 @@ export class GestionCandidats {
     new Candidat(4, 'marge', 'simpson', 66, 'Analyste'),
   ];
   
+
+  
   getAllCandidates() {
+
     return this.allCandidates;
   }
   

@@ -16,4 +16,4 @@
 <input #inp [value]="prenom" (input)="updatePrenom(inp.value)" type="text" class="form-control">
 
 <hr>
-<app-second (eventToParent)="traitement($event)" [txtColor]="bgColor" [studentName]="'jihad'"></app-second>
+<app-second (nidhalEvent)="traitement($event)" [txtColor]="'red'" [studentName]="'jihad'"></app-second>

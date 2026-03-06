@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Candidat } from '../models/Candidat';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class GestionRecrues {
   allRecrues : Candidat[] = [];
   

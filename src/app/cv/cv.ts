@@ -6,13 +6,14 @@ import { CustomDir } from '../custom-dir';
 import { First } from '../services/first';
 import { GestionCandidats } from '../services/gestion-candidats';
 import { Recrues } from "../recrues/recrues";
+import { GestionRecrues } from '../services/gestion-recrues';
 
 @Component({
   selector: 'app-cv',
   imports: [Liste, Details, CustomDir, Recrues],
   templateUrl: './cv.html',
   styleUrl: './cv.css',
-  providers : [First]
+  providers : [First, GestionRecrues]
 })
 export class Cv {
   tabCandidats: Candidat[] = [];
@@ -27,7 +28,7 @@ export class Cv {
   private candSer = inject(GestionCandidats);
 
   ngOnInit() {
-    this.firstSer.afficherBonjour();
+   this.firstSer.afficherBonjour();
     this.tabCandidats = this.candSer.getAllCandidates();
   }
   

@@ -6,10 +6,11 @@ import { Direct } from "./direct/direct";
 import { ManageServers } from "./manage-servers/manage-servers";
 import { GestionCandidats } from './services/gestion-candidats';
 import { Recrues } from "./recrues/recrues";
+import { ExempleSignals } from "./exemple-signals/exemple-signals";
 
 @Component({
   selector: 'app-root',
-  imports: [First, Cv, HomeAccount, Direct, ManageServers, Recrues],
+  imports: [First, Cv, HomeAccount, Direct, ManageServers, Recrues, ExempleSignals],
   templateUrl: './app.html',
   styleUrl: './app.css',
 
