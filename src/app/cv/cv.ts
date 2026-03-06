@@ -5,12 +5,14 @@ import { Candidat } from '../models/Candidat';
 import { CustomDir } from '../custom-dir';
 import { First } from '../services/first';
 import { GestionCandidats } from '../services/gestion-candidats';
+import { Recrues } from "../recrues/recrues";
 
 @Component({
   selector: 'app-cv',
-  imports: [Liste, Details, CustomDir],
+  imports: [Liste, Details, CustomDir, Recrues],
   templateUrl: './cv.html',
   styleUrl: './cv.css',
+  providers : [First]
 })
 export class Cv {
   tabCandidats: Candidat[] = [];

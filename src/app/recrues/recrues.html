@@ -1,0 +1,17 @@
+
+@if (recSer.allRecrues.length) {
+    <div>
+        <h4>Liste des recrues</h4>
+        <ol class="list-group">
+            @for (cand of recSer.allRecrues; track $index) {
+                
+                <app-item [oneCandidate]="cand"></app-item>
+            }
+        </ol>
+    </div>
+    
+}
+
+@else {
+    <p>Vous n'avez recruté personne pour le moment...</p>
+}
