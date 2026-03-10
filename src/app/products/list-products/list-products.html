@@ -12,8 +12,18 @@
         <td>{{ product.id }}</td>
         <td>{{ product.name }} </td>
         <td>{{ product.price }} </td>
-        <td></td>
-        <td>Delete</td>
+        <td>
+            @if (product.isSelected) {
+                <button (click)="productSer.updateIsSelected(product.id)" class="btn btn-success">Selected</button>
+            }
+            @else {
+                
+                <button (click)="productSer.updateIsSelected(product.id)" class="btn btn-danger">Not Selected</button>
+            }
+        </td>
+        <td>
+            <button (click)="productSer.deleteProduct(product.id)" class="btn btn-outline-danger">Delete</button>
+        </td>
       </tr>
     }
   </tbody>

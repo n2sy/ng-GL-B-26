@@ -1,0 +1,11 @@
+<h3>Bienvenue dans notre application de gestion de candidats</h3>
+
+<hr />
+<h3>Coté HTML</h3>
+<button routerLink="cv" class="btn btn-success">Go To CV</button>
+<button [routerLink]="['cv', id]" class="btn btn-info">Go To Infos</button>
+
+<hr />
+<h3>Coté TS</h3>
+<button (click)="goToCv()" class="btn btn-danger">Go To CV</button>
+<button (click)="goToInfos()" [routerLink]="['cv', id]" class="btn btn-dark">Go To Infos</button>
