@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Candidat } from '../models/Candidat';
 import { GestionCandidats } from '../services/gestion-candidats';
 
@@ -13,6 +13,7 @@ export class Infos {
   candToShow: Candidat;
   activateRoute = inject(ActivatedRoute);
   candSer = inject(GestionCandidats);
+  router = inject(Router);
 
   ngOnInit() {
     // Version Snapshot avec Params
@@ -31,5 +32,6 @@ export class Infos {
     //   // complete: () => {},
     // });
     this.candToShow = this.candSer.getCandidateById(this.activateRoute.snapshot.params['id']);
+    if (!this.candToShow) this.router.navigateByUrl('/404');
   }
 }
