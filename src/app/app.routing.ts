@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
+import { HomeAccount } from './accounts/home-account/home-account';
 import { Accueil } from './accueil/accueil';
 import { Cv } from './cv/cv';
-import { HomeAccount } from './accounts/home-account/home-account';
+import { Infos } from './infos/infos';
 import { ManageServers } from './manage-servers/manage-servers';
 import { HomeProducts } from './products/home-products/home-products';
-import { Infos } from './infos/infos';
 
 export let myRoutes: Routes = [
   { path: '', component: Accueil },
