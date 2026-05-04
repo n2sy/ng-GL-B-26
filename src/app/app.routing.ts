@@ -26,9 +26,14 @@ export let myRoutes: Routes = [
     loadComponent: () => import('./manage-servers/manage-servers').then((m) => m.ManageServers),
   },
   {
+    path: 'login',
+    loadComponent: () => import('./login/login').then((m) => m.Login),
+  },
+  {
     path: 'servers',
     loadChildren: () => import('./sub/sub-module').then((m) => m.SubModule),
   },
+
   {
     path: 'products',
     loadComponent: () =>

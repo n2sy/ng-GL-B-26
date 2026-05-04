@@ -1,0 +1,51 @@
+<form #f="ngForm">
+  <label for="">Login</label>
+  <input #inpLogin="ngModel" ngModel required email name="login" type="text" class="form-control" />
+
+  @if(inpLogin.invalid && inpLogin.touched) {
+  <div class="alert alert-danger">Veuillez saisir une adresse mail valide</div>
+  }
+
+  <label for="">Mot de passe</label>
+  <input
+    #inpPwd="ngModel"
+    ngModel
+    required
+    minlength="3"
+    name="password"
+    type="text"
+    class="form-control"
+  />
+  <br />
+  @if(inpPwd.invalid && inpPwd.dirty) {
+  <div class="alert alert-danger">le mot de passe doit comprendre 3 caractères au minimum</div>
+  }
+
+  <label for="langage">Lanagage préféré</label>
+  <select name="langage" id="langage" [ngModel]="defaultLanguage" class="form-control">
+    <option value=""></option>
+    <option value="php">Php</option>
+    <option value="java">Java</option>
+    <option value="js">Javascript</option>
+  </select>
+  <hr />
+  <p>Default Language : {{defaultLanguage }}</p>
+  <hr />
+
+  <textarea
+    name="commentaire"
+    [(ngModel)]="defautlComment"
+    rows="4"
+    cols="5"
+    class="form-control"
+  ></textarea>
+
+  <hr />
+  <p>Default Comment : {{defautlComment }}</p>
+  <hr />
+  <button [disabled]="f.invalid" class="btn btn-outline-primary" type="submit">Se connecter</button>
+
+  <pre>
+    {{ f.value | json }}
+  </pre>
+</form>
