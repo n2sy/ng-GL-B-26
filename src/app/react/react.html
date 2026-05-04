@@ -1,0 +1,27 @@
+<form [formGroup]="signUpForm" (ngSubmit)="submitHandler()">
+  <label for="">UserName</label>
+  <input type="text" class="form-control" formControlName="username" />
+
+  <label for="">E-mail</label>
+  <input type="text" class="form-control" formControlName="addrMail" />
+
+  @if(signUpForm.get("addrMail").invalid) {
+  <div class="alert alert-danger">Veuillez saisir une adresse mail valide</div>
+
+  }
+
+  <div>
+    <label for="">Skills</label>
+    <button (click)="addSkill()" class="btn btn-danger">+</button>
+    <div class="form-group">
+      @for(ctrl of formSkills.controls; track $index) {
+
+      <input type="text" class="form-control" [formControl]="$any(ctrl)" />
+      }
+    </div>
+  </div>
+
+  <br />
+
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>

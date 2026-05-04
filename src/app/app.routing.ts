@@ -5,8 +5,9 @@ export let myRoutes: Routes = [
   { path: '', loadComponent: () => import('./accueil/accueil').then((m) => m.Accueil) },
   {
     path: 'cv',
-    loadComponent: () => import('./cv/cv').then((m) => m.Cv),
+
     children: [
+      { path: '', loadComponent: () => import('./cv/cv').then((m) => m.Cv) },
       { path: 'add', loadComponent: () => import('./add/add').then((m) => m.Add) },
       {
         path: ':id',
@@ -28,6 +29,10 @@ export let myRoutes: Routes = [
   {
     path: 'login',
     loadComponent: () => import('./login/login').then((m) => m.Login),
+  },
+  {
+    path: 'react',
+    loadComponent: () => import('./react/react').then((m) => m.React),
   },
   {
     path: 'servers',
@@ -54,8 +59,9 @@ export let myRoutes: Routes = [
 //   { path: '', loadComponent: () => import('./accueil/accueil').then((m) => m.Accueil) },
 //   {
 //     path: 'cv',
+//     loadComponent: () => import('./cv/cv').then((m) => m.Cv),
 //     children: [
-//       { path: '', loadComponent: () => import('./cv/cv').then((m) => m.Cv) },
+//
 //       { path: 'add', loadComponent: () => import('./add/add').then((m) => m.Add) },
 //       {
 //         path: ':id',

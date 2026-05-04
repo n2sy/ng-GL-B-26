@@ -1,4 +1,4 @@
-<form #f="ngForm">
+<form #f="ngForm" (ngSubmit)="submitHandler(f)">
   <label for="">Login</label>
   <input #inpLogin="ngModel" ngModel required email name="login" type="text" class="form-control" />
 
@@ -21,29 +21,62 @@
   <div class="alert alert-danger">le mot de passe doit comprendre 3 caractères au minimum</div>
   }
 
-  <label for="langage">Lanagage préféré</label>
-  <select name="langage" id="langage" [ngModel]="defaultLanguage" class="form-control">
-    <option value=""></option>
-    <option value="php">Php</option>
-    <option value="java">Java</option>
-    <option value="js">Javascript</option>
-  </select>
-  <hr />
-  <p>Default Language : {{defaultLanguage }}</p>
-  <hr />
+  <div ngModelGroup="infos">
+    <label for="langage">Lanagage préféré</label>
+    <select name="langage" id="langage" [ngModel]="defaultLanguage" class="form-control">
+      <option value=""></option>
+      <option value="php">Php</option>
+      <option value="java">Java</option>
+      <option value="js">Javascript</option>
+    </select>
+    <hr />
+    <p>Default Language : {{defaultLanguage }}</p>
+    <hr />
 
-  <textarea
-    name="commentaire"
-    [(ngModel)]="defautlComment"
-    rows="4"
-    cols="5"
+    <label for="langage">Commentaire</label>
+    <textarea
+      name="commentaire"
+      [(ngModel)]="defautlComment"
+      rows="4"
+      cols="5"
+      class="form-control"
+    ></textarea>
+
+    <hr />
+    <p>Default Comment : {{defautlComment }}</p>
+    <hr />
+  </div>
+
+  <label for="langage">Gestion des erreurs</label>
+  <input
+    #inpErr="ngModel"
+    required
+    minlength="6"
+    pattern="nidhal"
+    ngModel
+    name="erreurs"
+    type="text"
     class="form-control"
-  ></textarea>
+  />
+  @if(inpErr.invalid) { @if(inpErr.errors["required"]) {
+  <div class="alert alert-danger">Ce champ est obligatoire</div>
 
-  <hr />
-  <p>Default Comment : {{defautlComment }}</p>
-  <hr />
+  } @if(inpErr.errors["minlength"]) {
+  <div class="alert alert-danger">Le nombre minimum de caractères est 6</div>
+
+  } @if(inpErr.errors["pattern"]) {
+  <div class="alert alert-danger">Le pattern est "nidhal"</div>
+
+  } }
+
   <button [disabled]="f.invalid" class="btn btn-outline-primary" type="submit">Se connecter</button>
+  <button (click)="generatePwd(f)" class="btn btn-outline-warning" type="button">
+    Generate Pwd
+  </button>
+  <button (click)="generatePwdII(f)" class="btn btn-outline-danger" type="button">
+    Generate Pwd II
+  </button>
+  <button (click)="resetForm(f)" class="btn btn-outline-dark" type="button">Reset</button>
 
   <pre>
     {{ f.value | json }}

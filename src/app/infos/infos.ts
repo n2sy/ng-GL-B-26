@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Candidat } from '../models/Candidat';
+import { NoAvatarPipe } from '../pipes/no-avatar-pipe';
 import { GestionCandidats } from '../services/gestion-candidats';
 
 @Component({
   selector: 'app-infos',
-  imports: [RouterLink],
+  imports: [RouterLink, NoAvatarPipe],
   templateUrl: './infos.html',
   styleUrl: './infos.css',
 })
@@ -33,5 +34,12 @@ export class Infos {
     // });
     this.candToShow = this.candSer.getCandidateById(this.activateRoute.snapshot.params['id']);
     if (!this.candToShow) this.router.navigateByUrl('/404');
+  }
+
+  deleteHandler() {
+    if (confirm('Etes vous sur de vouloir supprimer ce candidat ?')) {
+      this.candSer.deleteCandidate(this.candToShow.id);
+      this.router.navigateByUrl('/cv');
+    }
   }
 }
