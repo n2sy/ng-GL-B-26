@@ -1,5 +1,18 @@
 <div class="row">
-  <div class="col-6">Liste Des serveurs</div>
+  <div class="col-4">
+    <ol class="list-group">
+      @for(serv of serversSer.allServers; track $index) {
+      <li
+        [routerLink]="[serv.id]"
+        [queryParams]="{allowEdit : serv.id == 3 ? 1 : 0}"
+        class="list-group-item"
+      >
+        {{ serv.name }}
+      </li>
+
+      }
+    </ol>
+  </div>
   <div class="col-6">
     <router-outlet></router-outlet>
   </div>

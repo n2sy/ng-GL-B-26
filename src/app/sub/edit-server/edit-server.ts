@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { GestionServers } from '../gestion-servers';
 
 @Component({
   selector: 'app-edit-server',
@@ -6,4 +8,15 @@ import { Component } from '@angular/core';
   styleUrl: './edit-server.css',
   standalone: false,
 })
-export class EditServer {}
+export class EditServer {
+  serverToEdit;
+  actRoute = inject(ActivatedRoute);
+  serverSer = inject(GestionServers);
+  ngOnInit() {
+    this.actRoute.paramMap.subscribe({
+      next: (p: ParamMap) => {
+        this.serverToEdit = this.serverSer.getServerById(p.get('idServer'));
+      },
+    });
+  }
+}
