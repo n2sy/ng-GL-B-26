@@ -14,6 +14,7 @@ export class Details {
   @Input() selCandidat: Candidat;
 
   private recSer = inject(GestionRecrues);
+  a = true;
 
   ajouterRecrue() {
     this.recSer.addRecrue(this.selCandidat);
